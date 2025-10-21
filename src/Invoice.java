@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Invoice {
-    private ArrayList<LineItem> lineItems;
+    private ArrayList<LineItem> lineItems = new ArrayList<>();
 
 
     public void addItem(LineItem lineItem) {
@@ -10,17 +10,18 @@ public class Invoice {
 
     public double getTotalAmount() {
         double total = 0;
-        for (LineItem item : lineItems) {}
+        for (LineItem item : lineItems) {
             total += item.getTotal();
+        }
         return total;
     }
 
     public String getInvoiceDetails() {
         StringBuilder sb = new StringBuilder();
-        for (LineItem item : items) {
+        for (LineItem item : lineItems) {
             sb.append(item.toString()).append("\n");
         }
-        sb.append("Total Due: $" + getTotalAmount());
+        sb.append("---------------------------------------------\nTotal Due: $").append(String.format("%.2f", getTotalAmount()));
         return sb.toString();
     }
     public ArrayList<LineItem> getLineItems() {

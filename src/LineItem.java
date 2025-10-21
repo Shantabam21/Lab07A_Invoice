@@ -23,4 +23,7 @@ public class LineItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+    public String toString() {
+        return product.getName() + "\t" + quantity + "\t" + "$"+ String.format("%.2f",product.getPrice()) + "\t" + "$" + String.format("%.2f",(product.getPrice() * quantity));
+    }
 }
